@@ -1,0 +1,59 @@
+/* ==========================================================================
+   Font Icon
+   ========================================================================== */
+
+[class^="fi-"],
+[class*=" fi-"] {
+	/* use !important to prevent issues with browser extensions that change fonts */
+	font-family: "foodieland" !important;
+	speak: never;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.fi-timer:before {
+	content: "\e90b";
+}
+.fi-chevron-bottom:before {
+	content: "\e900";
+}
+.fi-chevron-left:before {
+	content: "\e901";
+}
+.fi-chevron-right:before {
+	content: "\e902";
+}
+.fi-chevron-top:before {
+	content: "\e903";
+}
+.fi-share:before {
+	content: "\e90a";
+}
+.fi-facebook:before {
+	content: "\e904";
+}
+.fi-fork-knife:before {
+	content: "\e905";
+}
+.fi-heart:before {
+	content: "\e906";
+}
+.fi-instagram:before {
+	content: "\e907";
+}
+.fi-play-circle:before {
+	content: "\e908";
+}
+.fi-printer:before {
+	content: "\e909";
+}
+.fi-twitter:before {
+	content: "\e90c";
+}
