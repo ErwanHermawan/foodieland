@@ -19,11 +19,6 @@ const Header = (props) => {
 					<div className={style.logo}>
 						<Image src={headerData.logo} alt="foodieland" />
 					</div>
-					<button type="button" className={style.burgerMenu}>
-						<span className={style.burgerMenuBar}></span>
-						<span className={style.burgerMenuBar}></span>
-						<span className={style.burgerMenuBar}></span>
-					</button>
 					<nav className={style.nav}>
 						<ul className={style.list}>
 							{headerData.menu.map((val, idx) => (
@@ -48,6 +43,11 @@ const Header = (props) => {
 							</li>
 						))}
 					</ul>
+					<button type="button" className={style.burgerMenu}>
+						<span className={style.burgerMenuBar}></span>
+						<span className={style.burgerMenuBar}></span>
+						<span className={style.burgerMenuBar}></span>
+					</button>
 				</div>
 			</div>
 		</header>

@@ -16,6 +16,9 @@
 	@include medium {
 		padding: 16px 0;
 	}
+	@include small {
+		padding: 12px 0;
+	}
 }
 
 .inner,
@@ -35,30 +38,22 @@
 
 .nav {
 	@include medium {
-		&::before {
-			@include medium {
-				content: "";
-				display: block;
-				width: 420px;
-				height: 100vh;
-				position: fixed;
-				top: 72px;
-				right: 0;
-				bottom: 0;
-				z-index: zi(header-bg-before);
-				background-color: color(primary);
-				transform: scaleX(1);
-				transform-origin: center right;
-				transition: all 0.5s ease;
-				transition-delay: 0.35s;
-				:global(.show-menu) & {
-					transform: scaleX(1);
-					transition-delay: 0.2s;
-				}
-			}
-			@include small {
-				top: 64px;
-			}
+		position: fixed;
+		@include scroll("y", "touch", "show");
+		width: 100%;
+		top: 65px;
+		left: 0;
+		bottom: 0;
+		margin-left: 0;
+		background-color: color(primary);
+		padding: 56px 24px 64px;
+		transform: scaleY(1);
+		transition: all 0.45s ease;
+		transform-origin: top center;
+		transition-delay: 0.55s;
+		:global(.show-menu) & {
+			transform: scaleX(1);
+			transition-delay: 0.2s;
 		}
 	}
 }
@@ -147,21 +142,20 @@
 		z-index: zi(burger-menu);
 		width: 40px;
 		height: 40px;
-		padding: 12px 10px;
+		padding: 8px;
 		font-size: 0;
 		line-height: 1;
 		text-align: center;
+		background-color: transparent;
 		cursor: pointer;
-		border-radius: 50%;
-		background-color: color(secondary);
 		@include remove-tap-highlight;
 	}
 	&Bar {
-		width: 18px;
+		width: 22px;
 		height: 2px;
 		display: inline-block;
-		margin-bottom: 4px;
-		background-color: color(white);
+		margin-bottom: 6px;
+		background-color: color(black);
 		border-radius: 1px;
 		transform: rotate(0deg);
 		transform-origin: center center;
