@@ -11,7 +11,7 @@ const Home = (props) => {
 	const { setMenu } = useStateHeader();
 
 	useEffect(() => {
-		setMenu("");
+		setMenu("home");
 	}, []);
 
 	return (
