@@ -14,8 +14,12 @@ import style from "./style.module.scss";
 // -- data
 import headerData from "./headerData";
 
+// -- hooks
+import useDeviceSize from "@hooks/useDeviceSize";
+
 const Header = (props) => {
 	const { menu } = useStateHeader();
+	useDeviceSize();
 
 	// show navigation menu
 	const [showNavigation, setShowNavigation] = useState(false);

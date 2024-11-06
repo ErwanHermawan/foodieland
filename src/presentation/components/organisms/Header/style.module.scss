@@ -9,6 +9,7 @@
 	width: 100%;
 	transition: all 0.4s ease;
 	padding: 32px 0;
+	background-color: color(white);
 	border-bottom: solid 1px color(grey, 4);
 	@include large {
 		padding: 24px 0;
@@ -19,11 +20,24 @@
 	@include small {
 		padding: 12px 0;
 	}
+	:global(.scroll-down) & {
+		transform: translateY(-100%);
+		box-shadow: none;
+	}
+	:global(.header-on-scroll) & {
+		padding: 24px 0;
+		@include shadow(16);
+		@include medium {
+			padding: 16px 0;
+		}
+		@include small {
+			padding: 12px 0;
+		}
+	}
 }
 
 .inner,
-.sosmedList,
-.sosmed {
+.list {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -41,7 +55,7 @@
 		&::before {
 			content: "";
 			position: fixed;
-			top: 88px;
+			top: 73px;
 			left: 0;
 			bottom: 0;
 			width: 100%;
@@ -66,10 +80,11 @@
 		position: fixed;
 		@include scroll("y", "touch", "show");
 		width: 100%;
-		top: 65px;
-		left: 0;
+		top: 73px;
+		right: 0;
 		bottom: 0;
 		margin-left: 0;
+		width: 420px;
 		background-color: color(primary);
 		padding: 56px 30px 64px;
 		transform: scaleY(0);
@@ -80,6 +95,10 @@
 			transform: scaleX(1);
 			transition-delay: 0.2s;
 		}
+	}
+	@include small {
+		top: 65px;
+		width: 100%;
 	}
 }
 
@@ -163,11 +182,10 @@
 }
 
 .sosmed {
-	@include large {
+	@include medium {
 		position: fixed;
-		left: 0;
 		right: 0;
-		width: 100%;
+		width: 420px;
 		bottom: 0;
 		z-index: 8;
 		padding: 16px 24px;
@@ -181,8 +199,13 @@
 			transition-delay: 850ms;
 		}
 	}
+	@include small {
+		width: 100%;
+	}
 	&List {
 		gap: 24px;
+		display: flex;
+		align-items: center;
 	}
 	&Link {
 		text-decoration: none;
