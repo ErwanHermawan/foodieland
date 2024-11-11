@@ -4,4 +4,56 @@
 	position: relative;
 	width: 100%;
 	z-index: zi(footer);
+	padding: 48px 0;
+}
+
+.top {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 48px 0 32px;
+}
+
+.logo {
+	display: inline-block;
+	margin-bottom: 16px;
+}
+
+.description {
+	color: color(grey, 1);
+	margin-bottom: 0;
+}
+
+.menu {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	align-items: center;
+	gap: 48px;
+}
+
+.link {
+	text-decoration: none;
+	padding: 0 8px;
+}
+
+.bottom {
+	display: flex;
+	padding-top: 32px;
+	border-top: solid 1px color(grey, 3);
+	justify-content: space-between;
+	align-items: center;
+}
+
+.sosmed {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	gap: 32px;
+	&Link {
+		text-decoration: none;
+		@include font-size(24);
+	}
 }
