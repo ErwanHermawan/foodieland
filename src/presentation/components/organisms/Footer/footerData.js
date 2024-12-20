@@ -39,7 +39,7 @@ const footerData = {
 			icon: "instagram",
 		},
 	],
-	copyright: "© 2020 Flowbase. Powered by Webflow",
+	copyright: "© 2020 Flowbase. Powered by <span>Webflow</span>",
 };
 
 export default footerData;

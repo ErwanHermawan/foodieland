@@ -90,7 +90,11 @@ const Header = (props) => {
 			<div className="container">
 				<div className={style.inner} ref={ref}>
 					<div className={style.logo}>
-						<Image src={headerData.logo} alt="foodieland" />
+						<Image
+							className={style.logoEl}
+							src={headerData.logo}
+							alt="foodieland"
+						/>
 					</div>
 					<nav className={style.nav}>
 						<ul className={style.list}>

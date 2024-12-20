@@ -60,7 +60,7 @@
 			bottom: 0;
 			width: 100%;
 			opacity: 0;
-			visibility: visible;
+			visibility: hidden;
 			background-color: rgba(color(black), 0.75);
 			transition: all 0.5s ease 0.5s;
 			@include small {
@@ -72,6 +72,14 @@
 				transition-delay: 0s;
 			}
 		}
+	}
+}
+
+.logo {
+	height: 30px;
+	&El {
+		display: block;
+		height: 100%;
 	}
 }
 
@@ -155,7 +163,7 @@
 		width: 4px;
 		height: 4px;
 		border-radius: 50%;
-		background-color: #ff7426;
+		background-color: color(secondary);
 		opacity: 0;
 		transition: all 0.3s ease;
 	}
@@ -188,13 +196,18 @@
 		width: 420px;
 		bottom: 0;
 		z-index: 8;
+		opacity: 0;
+		overflow: hidden;
+		visibility: hidden;
 		padding: 16px 24px;
 		border-top: solid 1px color(grey, 3);
 		background-color: color(primary);
 		transform: translateY(100%);
-		transition: transform 0.5s ease;
+		transition: all 0.5s ease;
 		transition-delay: 0;
 		:global(.show-menu) & {
+			opacity: 1;
+			visibility: visible;
 			transform: translateY(0);
 			transition-delay: 850ms;
 		}

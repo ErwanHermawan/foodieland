@@ -5,6 +5,9 @@
 	width: 100%;
 	z-index: zi(footer);
 	padding: 48px 0;
+	@include small {
+		padding: 32px 0;
+	}
 }
 
 .top {
@@ -12,11 +15,30 @@
 	justify-content: space-between;
 	align-items: center;
 	padding: 48px 0 32px;
+	@include small {
+		flex-direction: column;
+		align-items: flex-start;
+		padding: 32px 0 24px;
+	}
+}
+
+.about {
+	@include small {
+		margin-bottom: 24px;
+	}
 }
 
 .logo {
 	display: inline-block;
-	margin-bottom: 16px;
+	height: 30px;
+	margin-bottom: 8px;
+	@include small {
+		margin-bottom: 4px;
+	}
+	&El {
+		display: block;
+		height: 100%;
+	}
 }
 
 .description {
@@ -31,11 +53,16 @@
 	display: flex;
 	align-items: center;
 	gap: 48px;
+	@include small {
+		flex-direction: column;
+		gap: 16px;
+		align-items: flex-start;
+	}
 }
 
 .link {
 	text-decoration: none;
-	padding: 0 8px;
+	padding: 8px 0;
 }
 
 .bottom {
@@ -44,16 +71,65 @@
 	border-top: solid 1px color(grey, 3);
 	justify-content: space-between;
 	align-items: center;
+	position: relative;
+	@include small {
+		flex-direction: column;
+		padding-top: 24px;
+	}
+}
+
+.copyright {
+	flex: 1;
+	text-align: center;
+	margin-bottom: 0;
+	@include font-size(18);
+	span {
+		color: color(secondary);
+	}
+	@include medium {
+		@include font-size(16);
+	}
+	@include small {
+		@include font-size(14);
+		margin-bottom: 16px;
+	}
 }
 
 .sosmed {
+	position: absolute;
+	right: 0;
 	list-style: none;
 	padding: 0;
 	margin: 0;
 	display: flex;
 	gap: 32px;
+	@include small {
+		gap: 24px;
+		position: relative;
+	}
 	&Link {
-		text-decoration: none;
 		@include font-size(24);
+		text-decoration: none;
+		display: inline-block;
+		cursor: pointer;
+		transition: all 0.3s ease;
+		@include small {
+			@include font-size(20);
+		}
+		&:global(.facebook) {
+			&:hover {
+				color: color(social-media, facebook);
+			}
+		}
+		&:global(.instagram) {
+			&:hover {
+				color: color(social-media, instagram);
+			}
+		}
+		&:global(.twitter) {
+			&:hover {
+				color: color(social-media, twitter);
+			}
+		}
 	}
 }

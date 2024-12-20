@@ -1,6 +1,7 @@
 // -- core
 import Link from "next/link";
 import Image from "next/image";
+import parse from "html-react-parser";
 
 // -- style
 import style from "./style.module.scss";
@@ -15,7 +16,11 @@ const Footer = (props) => {
 				<div className={style.top}>
 					<div className={style.about}>
 						<Link className={style.logo} href={footerData.logo.to}>
-							<Image src={footerData.logo.image} alt="Foodieland" />
+							<Image
+								className={style.logoEl}
+								src={footerData.logo.image}
+								alt="Foodieland"
+							/>
 						</Link>
 						<p className={style.description}>{footerData.description}</p>
 					</div>
@@ -30,11 +35,14 @@ const Footer = (props) => {
 					</ul>
 				</div>
 				<div className={style.bottom}>
-					<p className={style.copyright}>{footerData.copyright}</p>
+					<p className={style.copyright}>{parse(footerData.copyright)}</p>
 					<ul className={style.sosmed}>
 						{footerData.sosmed.map((valS, idxS) => (
 							<li className={style.sosmedItem} key={`s-${idxS}`}>
-								<Link className={style.sosmedLink} href={valS.to}>
+								<Link
+									className={`${style.sosmedLink} ${valS.icon.toLowerCase()}`}
+									href={valS.to}
+								>
 									<i className={`fi-${valS.icon}`}></i>
 								</Link>
 							</li>

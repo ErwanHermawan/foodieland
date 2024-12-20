@@ -32,6 +32,7 @@ const useDeviceSize = () => {
 		} else {
 			_timeout = false;
 			document.querySelector("body")?.classList.remove("hold-transition");
+			document.querySelector("body")?.classList.remove("rm-scroll");
 		}
 	};
 
