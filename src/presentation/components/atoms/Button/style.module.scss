@@ -4,7 +4,7 @@
 	display: inline-block;
 	vertical-align: middle;
 	min-width: 145px;
-	padding: 15px 32px;
+	padding: 12px 24px;
 	border-radius: 32px;
 	text-decoration: none;
 	outline: 0;
@@ -19,5 +19,38 @@
 	font-weight: fw(medium);
 	@include medium {
 		padding: 11px 24px;
+	}
+	i,
+	span {
+		vertical-align: middle;
+	}
+	i {
+		@include font-size(24);
+		line-height: 1;
+		margin-right: 8px;
+	}
+	&Primary {
+		background-color: color(black);
+		color: color(white);
+		&:hover {
+			background-color: color(white);
+			border-color: color(black);
+			color: color(black);
+			i {
+				color: color(black);
+			}
+		}
+	}
+	&Secondary {
+		background-color: color(secondary);
+		color: color(white);
+		&:hover {
+			background-color: transparent;
+			color: color(secondary);
+			border-color: color(secondary);
+			i {
+				color: color(secondary);
+			}
+		}
 	}
 }

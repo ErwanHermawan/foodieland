@@ -16,6 +16,9 @@ const Button = (props) => {
 		variantStyle += " " + style.btnPrimary;
 	} else if (variant === "accent") {
 		variantStyle += " " + style.btnAccent;
+		if (icon !== undefined) {
+			variantStyle += " " + style.btnAccent + " " + style.btnAccentCustom;
+		}
 	} else if (variant === "white") {
 		variantStyle += " " + style.btnWhite;
 	} else if (category === "outline") {
