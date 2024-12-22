@@ -26,23 +26,25 @@ const HeroBanner = (props) => {
 							/>
 						</div>
 						<div className={style.text}>
-							<div className={style.subtitle}>
-								<Image
-									className={style.subtitleIcon}
-									src={val.subtitle.icon}
-									alt={val.subtitle.text}
-								/>
-								<p className={style.subtitleText}>{val.subtitle.text}</p>
-							</div>
-							<h1 className={style.title}>{val.title}</h1>
-							<p className={style.description}>{val.description}</p>
-							<div className={style.info}>
-								{val.info.map((valI, idxI) => (
-									<div className={style.infoItem} key={`i-${idxI}`}>
-										<i className={`fi ${valI.icon} ${style.infoIcon}`}></i>
-										<span className={style.infoText}>{valI.text}</span>
-									</div>
-								))}
+							<div className={style.top}>
+								<div className={style.subtitle}>
+									<Image
+										className={style.subtitleIcon}
+										src={val.subtitle.icon}
+										alt={val.subtitle.text}
+									/>
+									<p className={style.subtitleText}>{val.subtitle.text}</p>
+								</div>
+								<h1 className={style.title}>{val.title}</h1>
+								<p className={style.description}>{val.description}</p>
+								<div className={style.info}>
+									{val.info.map((valI, idxI) => (
+										<div className={style.infoItem} key={`i-${idxI}`}>
+											<i className={`fi ${valI.icon} ${style.infoIcon}`}></i>
+											<span className={style.infoText}>{valI.text}</span>
+										</div>
+									))}
+								</div>
 							</div>
 							<div className={style.bottom}>
 								<div className={style.author}>

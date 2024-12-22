@@ -2,6 +2,12 @@
 
 .banner {
 	padding: 48px 0;
+	@include medium {
+		padding: 32px 0;
+	}
+	@include small {
+		padding: 24px 0;
+	}
 }
 
 .item {
@@ -11,11 +17,21 @@
 	flex-direction: row-reverse;
 	overflow: hidden;
 	border-radius: 40px;
+	@include medium {
+		flex-direction: column;
+		border-radius: 32px;
+	}
+	@include small {
+		border-radius: 24px;
+	}
 }
 
 .image,
 .text {
 	width: 50%;
+	@include medium {
+		width: 100%;
+	}
 }
 
 .image {
@@ -25,6 +41,12 @@
 		height: 640px;
 		object-position: center;
 		object-fit: cover;
+		@include medium {
+			height: 360px;
+		}
+		@include small {
+			height: 240px;
+		}
 	}
 }
 
@@ -33,6 +55,16 @@
 	padding: 48px;
 	position: relative;
 	min-height: 640px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	@include medium {
+		padding: 32px;
+		min-height: initial;
+	}
+	@include small {
+		padding: 56px 24px 32px;
+	}
 }
 
 .subtitle {
@@ -41,6 +73,13 @@
 	border-radius: 24px;
 	display: inline-block;
 	margin-bottom: 32px;
+	@include medium {
+		margin-bottom: 24px;
+	}
+	@include small {
+		margin-bottom: 16px;
+		padding: 8px 24px;
+	}
 	&Icon,
 	&Text {
 		display: inline-block;
@@ -49,12 +88,19 @@
 	&Icon {
 		width: 24px;
 		height: 24px;
+		@include small {
+			width: 16px;
+			height: 16px;
+		}
 	}
 	&Text {
 		margin-left: 8px;
 		@include font-size(14);
 		font-weight: fw(medium);
 		margin-bottom: 0;
+		@include small {
+			@include font-size(12);
+		}
 	}
 }
 
@@ -62,19 +108,36 @@
 	@include font-size(64);
 	font-weight: fw(semi-bold);
 	margin-bottom: 24px;
+	@include medium {
+		@include font-size(48);
+	}
+	@include small {
+		@include font-size(36);
+		margin-bottom: 16px;
+	}
 }
 
 .description {
 	@include font-size(16);
 	margin-bottom: 24px;
 	color: color(grey, 1);
+	@include small {
+		@include font-size(14);
+		margin-bottom: 16px;
+	}
 }
 
 .info {
 	display: flex;
 	align-items: center;
 	gap: 24px;
-	margin-bottom: 80px;
+	@include medium {
+		gap: 16px;
+	}
+	@include small {
+		gap: 8px;
+		margin-bottom: 32px;
+	}
 	&Item {
 		display: flex;
 		align-items: center;
@@ -82,17 +145,25 @@
 		background-color: rgba($color: #000000, $alpha: 0.1);
 		padding: 12px 24px;
 		border-radius: 24px;
+		@include small {
+			padding: 8px 18px;
+			gap: 4px;
+		}
 	}
 	&Icon {
-		width: 24px;
-		height: 24px;
 		@include font-size(24);
 		line-height: 1;
+		@include small {
+			@include font-size(18);
+		}
 	}
 	&Text {
 		@include font-size(16);
 		font-weight: fw(medium);
 		color: color(grey, 1);
+		@include small {
+			@include font-size(14);
+		}
 	}
 }
 
@@ -100,7 +171,15 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	margin-top: 48px;
+	@include x-small {
+		align-items: baseline;
+		flex-direction: column;
+		gap: 16px;
+		button {
+			display: block;
+			width: 100%;
+		}
+	}
 }
 
 .author {
@@ -111,17 +190,27 @@
 		width: 48px;
 		height: 48px;
 		border-radius: 50%;
+		@include small {
+			width: 40px;
+			height: 40px;
+		}
 	}
 	&Name {
 		@include font-size(16);
 		font-weight: fw(semi-bold);
 		color: color(black);
 		margin-bottom: 0;
+		@include small {
+			@include font-size(14);
+		}
 	}
 	&Date {
 		@include font-size(14);
 		color: color(grey, 1);
 		margin-bottom: 0;
+		@include small {
+			@include font-size(12);
+		}
 	}
 }
 
@@ -129,11 +218,26 @@
 	position: absolute;
 	top: 50px;
 	right: -75px;
+	@include medium {
+		top: -60px;
+		right: 50%;
+		transform: translateX(50%);
+	}
+	@include small {
+		top: -40px;
+	}
 	&Image {
 		width: 150px;
 		height: 150px;
-
 		animation: spin 12s linear infinite;
+		@include medium {
+			width: 120px;
+			height: 120px;
+		}
+		@include small {
+			width: 80px;
+			height: 80px;
+		}
 	}
 	&Icon {
 		position: absolute;
@@ -142,6 +246,14 @@
 		left: 50%;
 		top: 50%;
 		transform: translate(-50%, -50%);
+		@include medium {
+			width: 64px;
+			height: 64px;
+		}
+		@include small {
+			width: 40px;
+			height: 40px;
+		}
 	}
 }
 
