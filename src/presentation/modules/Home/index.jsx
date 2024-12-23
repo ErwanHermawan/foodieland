@@ -8,6 +8,7 @@ import useStateHeader from "core/states/header";
 
 // -- organisms
 import HeroBanner from "@organisms/HeroBanner";
+import SectionCategories from "@organisms/SectionCategories";
 
 const Home = (props) => {
 	// set menu
@@ -20,6 +21,7 @@ const Home = (props) => {
 	return (
 		<>
 			<HeroBanner />
+			<SectionCategories />
 		</>
 	);
 };
