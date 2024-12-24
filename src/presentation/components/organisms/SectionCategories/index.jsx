@@ -18,7 +18,8 @@ const SectionCategories = (props) => {
 				<div className={style.head}>
 					<h2 className={style.title}>{dataCategories.title}</h2>
 					<Button to={dataCategories.button.link} variant="primary">
-						{dataCategories.button.text}
+						<span>{dataCategories.button.text}</span>
+						<i className="fi-arrow-right"></i>
 					</Button>
 				</div>
 				<div className={style.body}>
