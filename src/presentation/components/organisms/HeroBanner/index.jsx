@@ -1,4 +1,5 @@
 // -- cores
+import { useState } from "react";
 import Image from "next/image";
 
 // atoms
@@ -11,6 +12,18 @@ import style from "./style.module.scss";
 import bannerData from "./bannerData";
 
 const HeroBanner = (props) => {
+	const [openModal, setOpenModal] = useState(false);
+
+	const handleModalOpen = () => {
+		setOpenModal(true);
+		document.querySelector("body")?.classList.add("rm-scroll");
+	};
+
+	const handleModalClose = () => {
+		setOpenModal(false);
+		document.querySelector("body")?.classList.remove("rm-scroll");
+	};
+
 	return (
 		<section className={style.banner}>
 			<div className="container">
@@ -58,7 +71,7 @@ const HeroBanner = (props) => {
 										<p className={style.authorDate}>{val.author.publishDate}</p>
 									</div>
 								</div>
-								<Button variant="black" href="/">
+								<Button variant="black" onClick={handleModalOpen}>
 									<i className={`fi ${val.button.icon}`}></i>
 									<span>{val.button.text}</span>
 								</Button>
@@ -79,6 +92,19 @@ const HeroBanner = (props) => {
 					</div>
 				))}
 			</div>
+			{openModal && (
+				<div className={style.modal} onClick={handleModalClose}>
+					<div
+						className={style.modalContent}
+						onClick={(e) => e.stopPropagation()}
+					>
+						<button className={style.closeButton} onClick={handleModalClose}>
+							&times;
+						</button>
+						<p>This is the modal content!</p>
+					</div>
+				</div>
+			)}
 		</section>
 	);
 };

@@ -13,7 +13,7 @@ const bannerData = [
 		},
 		title: "Spicy delicious chicken wings",
 		description:
-			"Lorem ipsum dolor sit amet, consectetuipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqut enim ad minim.Lorem ipsum dolor sit amet, consectetuipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqut enim ad minim.",
+			"Lorem ipsum dolor sit amet, consectetuipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqut enim ad minim.",
 		info: [
 			{
 				icon: "fi-timer",
