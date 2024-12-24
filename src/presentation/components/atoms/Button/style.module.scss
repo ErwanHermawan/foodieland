@@ -18,7 +18,7 @@
 	transition: all 0.3s ease;
 	font-weight: fw(medium);
 	@include medium {
-		padding: 11px 24px;
+		padding: 12px 24px;
 	}
 	i,
 	span {
@@ -30,10 +30,10 @@
 		margin-right: 8px;
 	}
 	&Primary {
-		background-color: color(black);
-		color: color(white);
+		background-color: color(primary);
+		color: color(black);
 		&:hover {
-			background-color: color(white);
+			background-color: transparent;
 			border-color: color(black);
 			color: color(black);
 			i {
@@ -41,15 +41,15 @@
 			}
 		}
 	}
-	&Secondary {
-		background-color: color(secondary);
+	&Black {
+		background-color: color(black);
 		color: color(white);
 		&:hover {
 			background-color: transparent;
-			color: color(secondary);
-			border-color: color(secondary);
+			border-color: color(black);
+			color: color(black);
 			i {
-				color: color(secondary);
+				color: color(black);
 			}
 		}
 	}

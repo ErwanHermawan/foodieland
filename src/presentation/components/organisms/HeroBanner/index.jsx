@@ -58,7 +58,7 @@ const HeroBanner = (props) => {
 										<p className={style.authorDate}>{val.author.publishDate}</p>
 									</div>
 								</div>
-								<Button variant="primary" href="">
+								<Button variant="black" href="/">
 									<i className={`fi ${val.button.icon}`}></i>
 									<span>{val.button.text}</span>
 								</Button>

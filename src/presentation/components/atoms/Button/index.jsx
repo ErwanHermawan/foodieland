@@ -8,45 +8,57 @@ import style from "./style.module.scss";
 import SystemIcon from "@atoms/SystemIcon";
 
 const Button = (props) => {
-	const { variant = "primary", category, children, href, icon } = props;
-
+	const {
+		variant = "primary",
+		category,
+		children,
+		href,
+		icon,
+		...rest
+	} = props;
 	const iconCont = icon && <SystemIcon name={icon} />;
-	let variantStyle = style.btn;
-	if (variant === "primary") {
-		variantStyle += " " + style.btnPrimary;
-	} else if (variant === "accent") {
-		variantStyle += " " + style.btnAccent;
-		if (icon !== undefined) {
-			variantStyle += " " + style.btnAccent + " " + style.btnAccentCustom;
-		}
-	} else if (variant === "white") {
-		variantStyle += " " + style.btnWhite;
-	} else if (category === "outline") {
-		variantStyle += " " + style.btnOutline;
+
+	let variantClass;
+	switch (variant) {
+		case "primary":
+			variantClass = style.btnPrimary;
+			break;
+		case "accent":
+			variantClass = `${style.btnAccent} ${icon ? style.btnAccentCustom : ""}`;
+			break;
+		case "black":
+			variantClass = style.btnBlack;
+			break;
+		default:
+			variantClass = "";
 	}
 
-	if (category === "icon") {
-		variantStyle += " " + style.btnIcon;
+	let categoryClass;
+	switch (category) {
+		case "outline":
+			categoryClass = style.btnOutline;
+			break;
+		case "icon":
+			categoryClass = style.btnIcon;
+			break;
+		case "rounded":
+			categoryClass = style.btnRounded;
+			break;
+		default:
+			categoryClass = "";
 	}
 
-	if (category === "rounded") {
-		variantStyle += " " + style.btnRounded;
-	}
+	const variantStyle = [style.btn, variantClass, categoryClass]
+		.filter(Boolean) // Remove undefined or empty values
+		.join(" ");
 
-	if (href) {
-		return (
-			<Link {...props} className={variantStyle}>
-				{children}
-				{iconCont}
-			</Link>
-		);
-	}
+	const Component = href ? Link : "button";
 
 	return (
-		<button {...props} className={variantStyle}>
+		<Component {...rest} className={variantStyle} href={href}>
 			{children}
 			{iconCont}
-		</button>
+		</Component>
 	);
 };
 
