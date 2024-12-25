@@ -18,6 +18,9 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
+.fi-times:before {
+	content: "\e911";
+}
 .fi-arrow-down:before {
 	content: "\e90d";
 }

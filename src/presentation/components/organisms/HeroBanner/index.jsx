@@ -13,8 +13,10 @@ import bannerData from "./bannerData";
 
 const HeroBanner = (props) => {
 	const [openModal, setOpenModal] = useState(false);
+	const [iframeData, setIframeData] = useState("");
 
-	const handleModalOpen = () => {
+	const handleModalOpen = (iframeData) => {
+		setIframeData(iframeData);
 		setOpenModal(true);
 		document.querySelector("body")?.classList.add("rm-scroll");
 	};
@@ -22,6 +24,9 @@ const HeroBanner = (props) => {
 	const handleModalClose = () => {
 		setOpenModal(false);
 		document.querySelector("body")?.classList.remove("rm-scroll");
+		setTimeout(() => {
+			setIframeData("");
+		}, 300);
 	};
 
 	return (
@@ -71,7 +76,10 @@ const HeroBanner = (props) => {
 										<p className={style.authorDate}>{val.author.publishDate}</p>
 									</div>
 								</div>
-								<Button variant="black" onClick={handleModalOpen}>
+								<Button
+									variant="black"
+									onClick={() => handleModalOpen(val.iframe)}
+								>
 									<i className={`fi ${val.button.icon}`}></i>
 									<span>{val.button.text}</span>
 								</Button>
@@ -92,19 +100,27 @@ const HeroBanner = (props) => {
 					</div>
 				))}
 			</div>
-			{openModal && (
-				<div className={style.modal} onClick={handleModalClose}>
-					<div
-						className={style.modalContent}
-						onClick={(e) => e.stopPropagation()}
-					>
-						<button className={style.closeButton} onClick={handleModalClose}>
-							&times;
-						</button>
-						<p>This is the modal content!</p>
-					</div>
+			<div
+				className={`${style.modal} ${openModal ? style.modalShow : ""}`}
+				onClick={handleModalClose}
+			>
+				<button className={style.closeButton} onClick={handleModalClose}>
+					<i className="fi-times"></i>
+				</button>
+				<div
+					className={style.modalContent}
+					onClick={(e) => e.stopPropagation()}
+				>
+					<iframe
+						src={`https://www.youtube.com/embed/IUOhSacJTJc?si=${iframeData}`}
+						title="YouTube video player"
+						frameborder="0"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+						referrerpolicy="strict-origin-when-cross-origin"
+						allowfullscreen
+					></iframe>
 				</div>
-			)}
+			</div>
 		</section>
 	);
 };

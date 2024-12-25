@@ -39,6 +39,7 @@ const bannerData = [
 			icon: "fi-play-circle",
 		},
 		image: banner1,
+		iframe: "wwianxlV46LJGcfU",
 	},
 ];
 
