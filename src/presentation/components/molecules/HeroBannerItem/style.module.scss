@@ -67,19 +67,16 @@
 	background-color: color(white);
 	padding: 12px 24px;
 	border-radius: 24px;
-	display: inline-block;
 	margin-bottom: 32px;
+	display: flex;
+	align-items: center;
+	width: 164px;
 	@include medium {
 		margin-bottom: 24px;
 	}
 	@include small {
 		margin-bottom: 16px;
 		padding: 8px 24px;
-	}
-	&Icon,
-	&Text {
-		display: inline-block;
-		vertical-align: middle;
 	}
 	&Icon {
 		width: 24px;
@@ -256,7 +253,7 @@
 }
 
 .modal {
-	position: fixed;
+	position: absolute;
 	left: 0;
 	top: 0;
 	width: 100%;

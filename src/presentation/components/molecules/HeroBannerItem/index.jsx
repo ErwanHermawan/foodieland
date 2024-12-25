@@ -9,7 +9,17 @@ import Button from "@atoms/Button";
 import style from "./style.module.scss";
 
 const HeroBannerItem = (props) => {
-	const { data } = props;
+	const {
+		subtitle,
+		title,
+		description,
+		info,
+		author,
+		bagde,
+		button,
+		image,
+		iframe,
+	} = props;
 	const [openModal, setOpenModal] = useState(false);
 	const [iframeData, setIframeData] = useState("");
 
@@ -30,73 +40,68 @@ const HeroBannerItem = (props) => {
 	return (
 		<>
 			{/* banner item */}
-			{data.map((val, idx) => (
-				<div className={style.item} key={`hb-${idx}`}>
-					<div className={style.image}>
+			<div className={style.item}>
+				<div className={style.image}>
+					<Image
+						className={style.imageEl}
+						src={image}
+						alt={title}
+						width={640}
+						height={640}
+					/>
+				</div>
+				<div className={style.text}>
+					<div className={style.top}>
+						<div className={style.subtitle}>
+							<Image
+								className={style.subtitleIcon}
+								src={subtitle.icon}
+								alt={subtitle.text}
+							/>
+							<p className={style.subtitleText}>{subtitle.text}</p>
+						</div>
+						<h1 className={style.title}>{title}</h1>
+						<p className={style.description}>{description}</p>
+						<div className={style.info}>
+							{info.map((valI, idxI) => (
+								<div className={style.infoItem} key={`i-${idxI}`}>
+									<i className={`fi ${valI.icon} ${style.infoIcon}`}></i>
+									<span className={style.infoText}>{valI.text}</span>
+								</div>
+							))}
+						</div>
+					</div>
+					<div className={style.bottom}>
+						<div className={style.author}>
+							<Image
+								className={style.authorImage}
+								src={author.image}
+								alt={author.name}
+							/>
+							<div className={style.authorText}>
+								<p className={style.authorName}>{author.name}</p>
+								<p className={style.authorDate}>{author.publishDate}</p>
+							</div>
+						</div>
+						<Button variant="black" onClick={() => handleModalOpen(iframe)}>
+							<i className={`fi ${button.icon}`}></i>
+							<span>{button.text}</span>
+						</Button>
+					</div>
+					<div className={style.badge}>
 						<Image
-							className={style.imageEl}
-							src={val.image}
-							alt={val.title}
-							width={640}
-							height={640}
+							className={style.badgeImage}
+							src={bagde.image}
+							alt={bagde.icon}
+						/>
+						<Image
+							className={style.badgeIcon}
+							src={bagde.icon}
+							alt={bagde.icon}
 						/>
 					</div>
-					<div className={style.text}>
-						<div className={style.top}>
-							<div className={style.subtitle}>
-								<Image
-									className={style.subtitleIcon}
-									src={val.subtitle.icon}
-									alt={val.subtitle.text}
-								/>
-								<p className={style.subtitleText}>{val.subtitle.text}</p>
-							</div>
-							<h1 className={style.title}>{val.title}</h1>
-							<p className={style.description}>{val.description}</p>
-							<div className={style.info}>
-								{val.info.map((valI, idxI) => (
-									<div className={style.infoItem} key={`i-${idxI}`}>
-										<i className={`fi ${valI.icon} ${style.infoIcon}`}></i>
-										<span className={style.infoText}>{valI.text}</span>
-									</div>
-								))}
-							</div>
-						</div>
-						<div className={style.bottom}>
-							<div className={style.author}>
-								<Image
-									className={style.authorImage}
-									src={val.author.image}
-									alt={val.author.name}
-								/>
-								<div className={style.authorText}>
-									<p className={style.authorName}>{val.author.name}</p>
-									<p className={style.authorDate}>{val.author.publishDate}</p>
-								</div>
-							</div>
-							<Button
-								variant="black"
-								onClick={() => handleModalOpen(val.iframe)}
-							>
-								<i className={`fi ${val.button.icon}`}></i>
-								<span>{val.button.text}</span>
-							</Button>
-						</div>
-						<div className={style.badge}>
-							<Image
-								className={style.badgeImage}
-								src={val.bagde.image}
-								alt={val.bagde.icon}
-							/>
-							<Image
-								className={style.badgeIcon}
-								src={val.bagde.icon}
-								alt={val.bagde.icon}
-							/>
-						</div>
-					</div>
 				</div>
-			))}
+			</div>
 
 			{/* modal */}
 			<div
