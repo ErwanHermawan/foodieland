@@ -1,6 +1,5 @@
 // -- cores
-import { useState, useEffect } from "react";
-
+import { useEffect, useState } from "react";
 import Slider from "react-slick";
 
 // -- style carousel
@@ -16,8 +15,12 @@ import bannerData from "./bannerData";
 // -- molecules
 import HeroBannerItem from "@molecules/HeroBannerItem";
 
+// -- zustand state
+import useStateHeroBanner from "@states/heroBanner";
+
 const HeroBanner = (props) => {
 	const [showSingle, setShowSingle] = useState(false);
+	const { openModal, iframeData, setModal, setIframe } = useStateHeroBanner();
 
 	useEffect(() => {
 		let timer = setTimeout(() => setShowSingle(true), 500);
@@ -27,20 +30,34 @@ const HeroBanner = (props) => {
 		};
 	}, []);
 
+	const handleModalOpen = (iframeSrc) => {
+		setIframe(iframeSrc);
+		setModal(true);
+		document.querySelector("body")?.classList.add("rm-scroll");
+	};
+
+	const handleModalClose = () => {
+		setModal(false);
+		document.querySelector("body")?.classList.remove("rm-scroll");
+		setTimeout(() => {
+			setIframe("");
+		}, 300);
+	};
+
 	const settings = {
 		arrow: false,
 		dots: false,
 		centerMode: true,
 		infinite: true,
-		slidesToShow: 1, // Number of slides to show at once
-		slidesToScroll: 1, // Number of slides to scroll at once
+		slidesToShow: 1,
+		slidesToScroll: 1,
 		speed: 1000,
 		focusOnSelect: true,
-		centerPadding: "0", // Adjust this to add/remove space on the sides of the centered slide
-		variableWidth: false, // Set to true if you want dynamic width slides
+		centerPadding: "0",
+		variableWidth: false,
 		pauseOnHover: true,
-		autoplay: true, // If you want autoplay functionality
-		autoplaySpeed: 8000, // Adjust autoplay speed
+		autoplay: true,
+		autoplaySpeed: 8000,
 	};
 
 	let classNameSingle = style.banner;
@@ -62,7 +79,6 @@ const HeroBanner = (props) => {
 				{bannerData.map((val, idx) => (
 					<div className={style.item} key={`hb-${idx}`}>
 						<div className="container">
-							{/* Pass the single item (val) to HeroBannerItem */}
 							<HeroBannerItem {...val} />
 						</div>
 					</div>
@@ -78,11 +94,32 @@ const HeroBanner = (props) => {
 				<Slider {...settings}>
 					{bannerData.map((val, idx) => (
 						<div className={style.item} key={`hb-${idx}`}>
-							{/* Pass the single item (val) to HeroBannerItem */}
-							<HeroBannerItem {...val} id={idx} />
+							<HeroBannerItem {...val} id={idx} onModalOpen={handleModalOpen} />
 						</div>
 					))}
 				</Slider>
+			</div>
+
+			{/* Modal */}
+			<div
+				className={`${style.modal} ${openModal ? style.modalShow : ""}`}
+				onClick={handleModalClose}
+			>
+				<button className={style.closeButton} onClick={handleModalClose}>
+					<i className="fi-times"></i>
+				</button>
+				<div
+					className={style.modalContent}
+					onClick={(e) => e.stopPropagation()}
+				>
+					<iframe
+						src={`https://www.youtube.com/embed/${iframeData}`}
+						title="YouTube video player"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+						referrerPolicy="strict-origin-when-cross-origin"
+						allowFullScreen
+					></iframe>
+				</div>
 			</div>
 		</section>
 	);

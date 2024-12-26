@@ -17,7 +17,6 @@
 		justify-content: center;
 		align-items: center;
 		width: 100%;
-		transition: transform 0.5s ease, opacity 0.5s ease; /* Add smooth transition */
 	}
 
 	:global(.slick-list) {
@@ -25,12 +24,120 @@
 	}
 
 	:global(.slick-slide:not(.slick-active)) {
-		transform: scale(0.94); /* Scale down non-active slides */
-		opacity: 0.7; /* Optionally, reduce opacity for non-active slides */
+		.item {
+			position: relative; /* Ensure the pseudo-element is positioned correctly */
+			transition: transform 0.75s ease; /* Smooth transition */
+			transform: scale(0.94); /* Scale down non-active slides */
+
+			&::after {
+				content: "";
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				background-color: color(primary); /* Subtle overlay effect */
+				border-radius: 38px;
+				transition: all 0.75s ease; /* Smooth transition for overlay */
+				z-index: 1; /* Ensure it's above the content but below other elements */
+				@include medium {
+					border-radius: 32px;
+				}
+				@include small {
+					border-radius: 24px;
+				}
+			}
+		}
 	}
 
 	:global(.slick-active) {
-		transform: scale(1); /* No scaling effect for the active slide */
-		opacity: 1; /* Ensure the active slide is fully opaque */
+		.item {
+			transform: scale(1); /* Restore scale for active slide */
+			transition: transform 0.75s ease; /* Smooth transition */
+
+			&::after {
+				visibility: hidden;
+				transition: opacity 0.75s ease, visibility 0.75s ease; /* Smooth hiding */
+			}
+		}
+	}
+}
+
+.modal {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: color(overlay);
+	z-index: 10;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+	transition-delay: 0.3s;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	&Show {
+		visibility: visible;
+		opacity: 1;
+		transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
+		.modalContent {
+			transform: translateY(0);
+			opacity: 1;
+			transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+			transition-delay: 0.3s;
+		}
+	}
+	&Content {
+		display: block;
+		width: 100%;
+		height: 100%;
+		max-width: 840px;
+		max-height: 560px;
+		padding: 32px;
+		transform: translateY(24px);
+		opacity: 0;
+		transition: transform 0.3s ease-in, opacity 0.3s ease-in;
+		@include small {
+			padding: 24px;
+			max-height: 240px;
+		}
+		iframe {
+			width: 100%;
+			height: 100%;
+			border: none;
+		}
+	}
+}
+
+.closeButton {
+	position: absolute;
+	top: 32px;
+	right: 32px;
+	border: none;
+	outline: none;
+	background-color: color(primary);
+	border-radius: 50%;
+	width: 40px;
+	height: 40px;
+	cursor: pointer;
+	padding: 0;
+	transition: all 0.3s ease; // Ensure smooth transitions
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	&:hover {
+		i {
+			transform: rotate(90deg); // Correct rotation
+		}
+	}
+
+	i {
+		@include font-size(24);
+		line-height: 1;
+		transition: transform 0.3s ease; // Smooth rotation
 	}
 }
