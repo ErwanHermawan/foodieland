@@ -1,6 +1,6 @@
 @import "core/styles/_assets.scss";
 
-@mixin transtion() {
+@mixin transition() {
 	opacity: 0;
 	transform: translateY(24px);
 	transition: all 1.75s ease;
@@ -95,7 +95,7 @@
 	display: flex;
 	align-items: center;
 	width: 164px;
-	@include transtion();
+	@include transition();
 	:global(.slick-active) &,
 	:global(.banner-single) & {
 		transition-delay: 200ms;
@@ -130,7 +130,7 @@
 	@include font-size(64);
 	font-weight: fw(semi-bold);
 	margin-bottom: 24px;
-	@include transtion();
+	@include transition();
 	:global(.slick-active) &,
 	:global(.banner-single) & {
 		transition-delay: 400ms;
@@ -148,7 +148,7 @@
 	@include font-size(16);
 	margin-bottom: 32px;
 	color: color(grey, 1);
-	@include transtion();
+	@include transition();
 	:global(.slick-active) &,
 	:global(.banner-single) & {
 		transition-delay: 600ms;
@@ -166,10 +166,10 @@
 	display: flex;
 	align-items: center;
 	gap: 16px;
-	@include transtion();
+	@include transition();
 	:global(.slick-active) &,
 	:global(.banner-single) & {
-		transition-delay: 800s;
+		transition-delay: 800ms;
 	}
 	@include medium {
 		gap: 12px;
@@ -210,7 +210,7 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	@include transtion();
+	@include transition();
 	:global(.slick-active) &,
 	:global(.banner-single) & {
 		transition-delay: 1000ms;

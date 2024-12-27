@@ -1,0 +1,59 @@
+@import "core/styles/_assets.scss";
+
+.section {
+	padding: 64px 0;
+	@include medium {
+		padding: 48px 0;
+	}
+}
+
+.head {
+	text-align: center;
+	max-width: 706px;
+	margin: 0 auto;
+	margin-bottom: 64px;
+	@include large {
+		margin-bottom: 56px;
+	}
+	@include medium {
+		margin-bottom: 32px;
+	}
+}
+
+.title {
+	@include font-size(48);
+	font-weight: fw(bold);
+	margin-bottom: 24px;
+}
+
+.description {
+	@include font-size(16);
+	font-weight: fw(regular);
+	margin-bottom: 0;
+}
+
+.body {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 32px;
+
+	@include medium {
+		gap: 16px;
+	}
+}
+
+.wrapper {
+	box-sizing: border-box;
+	flex: 0 1 calc(33.333333% - 24px);
+	max-width: calc(33.333333% - 24px);
+
+	@include medium {
+		flex: 0 1 calc(33.333333% - 11px);
+		max-width: calc(33.333333% - 11px);
+	}
+	@include medium {
+		flex: 0 1 calc(50% - 8px);
+		max-width: calc(50% - 8px);
+	}
+}

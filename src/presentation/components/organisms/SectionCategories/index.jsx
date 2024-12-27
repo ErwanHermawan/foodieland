@@ -16,7 +16,7 @@ import dataCategories from "./dataCategory";
 
 const SectionCategories = (props) => {
 	return (
-		<div className={style.categories}>
+		<section className={style.categories}>
 			<div className="container">
 				<div className={style.head}>
 					<h2 className={style.title}>{dataCategories.title}</h2>
@@ -33,7 +33,7 @@ const SectionCategories = (props) => {
 					))}
 				</div>
 			</div>
-		</div>
+		</section>
 	);
 };
 
