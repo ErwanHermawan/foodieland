@@ -5,6 +5,9 @@ import Link from "next/link";
 // -- atoms
 import Button from "@atoms/Button";
 
+// -- molecules
+import CategoryItem from "@molecules/CategoryItem";
+
 // -- style
 import style from "./style.module.scss";
 
@@ -25,24 +28,7 @@ const SectionCategories = (props) => {
 				<div className={style.body}>
 					{dataCategories.item.map((val, idx) => (
 						<div key={`ct-${idx}`} className={style.item}>
-							<Link className={style.link} href={val.to}>
-								{val.text}
-							</Link>
-							<div className={style.image}>
-								<Image
-									className={style.imageEl}
-									src={val.image}
-									alt={val.text}
-								/>
-							</div>
-							<div
-								className={style.box}
-								style={{
-									background: `linear-gradient(to bottom, ${val.color}00, ${val.color}1A)`,
-								}}
-							>
-								<p className={style.text}>{val.text}</p>
-							</div>
+							<CategoryItem {...val} />
 						</div>
 					))}
 				</div>
