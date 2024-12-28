@@ -24,12 +24,23 @@
 	@include font-size(48);
 	font-weight: fw(bold);
 	margin-bottom: 24px;
+	@include medium {
+		@include font-size(36);
+	}
+	@include small {
+		@include font-size(24);
+		margin-bottom: 16px;
+	}
 }
 
 .description {
 	@include font-size(16);
 	font-weight: fw(regular);
 	margin-bottom: 0;
+	color: color(grey, 1);
+	@include small {
+		@include font-size(14);
+	}
 }
 
 .body {
@@ -52,7 +63,7 @@
 		flex: 0 1 calc(33.333333% - 11px);
 		max-width: calc(33.333333% - 11px);
 	}
-	@include medium {
+	@include small {
 		flex: 0 1 calc(50% - 8px);
 		max-width: calc(50% - 8px);
 	}
