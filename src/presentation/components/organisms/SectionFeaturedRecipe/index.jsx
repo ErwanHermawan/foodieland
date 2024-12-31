@@ -1,7 +1,3 @@
-// -- cores
-import Image from "next/image";
-import Link from "next/link";
-
 // -- data
 import recipeData from "./recipeData";
 
@@ -10,6 +6,7 @@ import style from "./style.module.scss";
 
 // -- molecules
 import RecipeItem from "@molecules/RecipeItem";
+import Ads from "@molecules/Ads";
 
 const SectionFeaturedRecipe = (props) => {
 	return (
@@ -21,9 +18,16 @@ const SectionFeaturedRecipe = (props) => {
 				</div>
 				<div className={style.body}>
 					{recipeData.item.map((val, idx) => (
-						<div key={`fr-${idx}`} className={style.wrapper}>
-							<RecipeItem {...val} />
-						</div>
+						<>
+							<div key={`fr-${idx}`} className={style.wrapper}>
+								<RecipeItem {...val} />
+							</div>
+							{(idx + 1) % 5 === 0 && (
+								<div className={style.wrapper}>
+									<Ads />
+								</div>
+							)}
+						</>
 					))}
 				</div>
 			</div>

@@ -59,6 +59,19 @@
 }
 
 @font-face {
+	font-family: "Lobster";
+	src: url("../../assets/fonts/Lobster-Regular.eot");
+	src: url("../../assets/fonts/Lobster-Regular.eot?#iefix")
+			format("embedded-opentype"),
+		url("../../assets/fonts/Lobster-Regular.woff2") format("woff2"),
+		url("../../assets/fonts/Lobster-Regular.woff") format("woff"),
+		url("../../assets/fonts/Lobster-Regular.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
 	font-family: "foodieland";
 	src: url("../../assets/fonts/icon/foodieland.eot?rb4wna");
 	src: url("../../assets/fonts/icon/foodieland.eot?rb4wna#iefix")

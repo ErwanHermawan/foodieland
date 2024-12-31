@@ -3,11 +3,13 @@
    ========================================================================== */
 
 $font-main: "Inter", sans-serif;
+$font-secondary: "Lobster", sans-serif;
 $font-icon: "foodieland";
 
 // Font
 $font: (
 	main: $font-main,
+	secondary: $font-secondary,
 	icon: $font-icon,
 	f64: (
 		font-size: 6.4rem,
