@@ -1,11 +1,7 @@
 @import "core/styles/_assets.scss";
 
 .item {
-	background: linear-gradient(
-		to bottom,
-		rgba(color(primary), 0) 0%,
-		rgba(color(primary), 1) 100%
-	);
+	background: color(gradient, 1);
 	border-radius: 24px;
 	overflow: hidden;
 	position: relative;

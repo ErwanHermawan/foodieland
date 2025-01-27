@@ -45,19 +45,19 @@ const HeroBanner = (props) => {
 	};
 
 	const settings = {
-		arrow: false,
+		arrows: false,
 		dots: false,
 		centerMode: true,
 		infinite: true,
 		slidesToShow: 1,
 		slidesToScroll: 1,
-		speed: 1000,
+		speed: 1250,
 		focusOnSelect: true,
 		centerPadding: "0",
 		variableWidth: false,
 		pauseOnHover: true,
 		autoplay: true,
-		autoplaySpeed: 8000,
+		autoplaySpeed: 15000,
 	};
 
 	let classNameSingle = style.banner;
