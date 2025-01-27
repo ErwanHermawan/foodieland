@@ -1,4 +1,5 @@
 // -- cores
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -6,7 +7,19 @@ import Link from "next/link";
 import style from "./style.module.scss";
 
 const RecipeItem = (props) => {
-	const { to, title, image, info, favorite } = props;
+	const { to, title, image, info, favorite, onFavoriteToggle } = props;
+
+	const [isFavorite, setIsFavorite] = useState(favorite);
+
+	const handleFavoriteClick = () => {
+		const newFavoriteState = !isFavorite;
+		setIsFavorite(newFavoriteState);
+
+		if (onFavoriteToggle) {
+			onFavoriteToggle(newFavoriteState); // Call the parent function to update the favorite state
+		}
+	};
+
 	return (
 		<div className={style.item}>
 			<Link className={style.link} href={to}>
@@ -15,11 +28,12 @@ const RecipeItem = (props) => {
 			<div className={style.badge}>
 				<button
 					className={
-						favorite
+						isFavorite
 							? `${style.badgeBtn} ${style.badgeBtnFavorite}`
 							: style.badgeBtn
 					}
 					type="button"
+					onClick={handleFavoriteClick}
 				>
 					<i className="fi-heart"></i>
 				</button>

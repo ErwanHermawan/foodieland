@@ -52,19 +52,38 @@
 	@include medium {
 		gap: 16px;
 	}
+
+	@include small {
+		gap: 12px;
+	}
 }
 
 .wrapper {
 	box-sizing: border-box;
-	flex: 0 1 calc(33.333333% - 24px);
+	flex: 0 1 calc(33.333333% - 24px); // Adjusted width for 3 items per row
 	max-width: calc(33.333333% - 24px);
+	display: flex;
+	flex-direction: row;
+	gap: 16px;
 
 	@include medium {
 		flex: 0 1 calc(33.333333% - 11px);
 		max-width: calc(33.333333% - 11px);
 	}
+
 	@include small {
 		flex: 0 1 calc(50% - 8px);
 		max-width: calc(50% - 8px);
+	}
+
+	&WithAds {
+		flex: 0 1 calc(67.3% - 24px); // Adjusted width for 2 items per row, plus Ads
+		max-width: calc(67.3% - 24px);
+		gap: 32px;
+		@include small {
+			flex: 0 1 calc(100% - 8px);
+			max-width: calc(100% - 8px);
+			gap: 12px;
+		}
 	}
 }

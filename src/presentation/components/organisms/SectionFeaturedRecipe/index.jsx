@@ -17,18 +17,22 @@ const SectionFeaturedRecipe = (props) => {
 					<p className={style.description}>{recipeData.description}</p>
 				</div>
 				<div className={style.body}>
-					{recipeData.item.map((val, idx) => (
-						<>
-							<div key={`fr-${idx}`} className={style.wrapper}>
+					{recipeData.item.map((val, idx) => {
+						// Check if the Ads component will be added
+						const isAdsAdded = (idx + 1) % 5 === 0;
+
+						return (
+							<div
+								key={`fr-${idx}`}
+								className={`${style.wrapper} ${
+									isAdsAdded ? style.wrapperWithAds : ""
+								}`}
+							>
 								<RecipeItem {...val} />
+								{isAdsAdded && <Ads />}
 							</div>
-							{(idx + 1) % 5 === 0 && (
-								<div className={style.wrapper}>
-									<Ads />
-								</div>
-							)}
-						</>
-					))}
+						);
+					})}
 				</div>
 			</div>
 		</div>
