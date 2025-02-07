@@ -6,7 +6,8 @@ const footerData = {
 		image: logo,
 		to: "/",
 	},
-	description: "Lorem ipsum dolor sit amet.",
+	description:
+		"Foodieland is a food blog that provides various recipes and cooking tips.",
 	menu: [
 		{
 			to: "/recipes",

@@ -54,15 +54,15 @@
 		gap: 16px;
 	}
 	@include small {
-		gap: 12px;
 		margin-bottom: 24px;
+		flex-direction: column;
 	}
 }
 
 .item {
 	width: 25%;
 	@include small {
-		width: 50%;
+		width: 100%;
 	}
 }
 
