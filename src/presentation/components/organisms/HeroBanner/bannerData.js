@@ -14,7 +14,7 @@ const bannerData = [
 		},
 		title: "Spicy delicious chicken wings",
 		description:
-			"Lorem ipsum dolor sit amet, consectetuipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqut enim ad minim.",
+			"Spicy delicious chicken wings with a crispy crust. Perfect for a snack or a party. Serve with your favorite sauce.",
 		info: [
 			{
 				icon: "fi-timer",
@@ -49,7 +49,7 @@ const bannerData = [
 		},
 		title: "Health Japanese Fried Rice",
 		description:
-			"Lorem ipsum dolor sit amet, consectetuipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqut enim ad minim.",
+			"Hearty and delicious Japanese fried rice with a variety of vegetables and a touch of garlic and ginger. Serve with a side of pickled ginger.",
 		info: [
 			{
 				icon: "fi-timer",
@@ -84,7 +84,7 @@ const bannerData = [
 		},
 		title: "The Creamiest Creamy Chicken and Bacon Pasta",
 		description:
-			"Lorem ipsum dolor sit amet, consectetuipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqut enim ad minim.",
+			"Creamy chicken and bacon pasta with a touch of garlic and parmesan. Serve with a side of garlic bread. Perfect for a cozy night in.",
 		info: [
 			{
 				icon: "fi-timer",
