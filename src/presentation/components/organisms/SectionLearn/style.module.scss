@@ -1,0 +1,66 @@
+@import "core/styles/_assets.scss";
+
+.section {
+	padding: 60px 0;
+	@include medium {
+		padding: 48px 0;
+	}
+	@include small {
+		padding: 32px 0;
+	}
+}
+
+.wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 40px;
+	@include small {
+		flex-direction: column-reverse;
+		gap: 24px;
+	}
+}
+
+.text {
+	width: 45%;
+	@include small {
+		width: 100%;
+	}
+}
+
+.title {
+	@include font-size(48);
+	font-weight: fw(bold);
+	margin-bottom: 24px;
+	@include medium {
+		@include font-size(36);
+	}
+	@include small {
+		@include font-size(24);
+	}
+}
+
+.description {
+	@include font-size(16);
+	font-weight: fw(regular);
+	margin-bottom: 32px;
+	color: color(grey, 1);
+	@include small {
+		@include font-size(14);
+	}
+}
+
+.image {
+	width: 55%;
+	height: 100%;
+	@include small {
+		width: 100%;
+	}
+	&El {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: center;
+	}
+}

@@ -10,6 +10,7 @@ import useStateHeader from "core/states/header";
 import HeroBanner from "@organisms/HeroBanner";
 import SectionCategories from "@organisms/SectionCategories";
 import SectionFeaturedRecipe from "@organisms/SectionFeaturedRecipe";
+import SectionLearn from "@organisms/SectionLearn";
 
 const Home = (props) => {
 	// set menu
@@ -24,6 +25,7 @@ const Home = (props) => {
 			<HeroBanner />
 			<SectionCategories />
 			<SectionFeaturedRecipe />
+			<SectionLearn />
 		</>
 	);
 };
