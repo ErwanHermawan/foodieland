@@ -11,6 +11,7 @@ import HeroBanner from "@organisms/HeroBanner";
 import SectionCategories from "@organisms/SectionCategories";
 import SectionFeaturedRecipe from "@organisms/SectionFeaturedRecipe";
 import SectionLearn from "@organisms/SectionLearn";
+import SectionInstagram from "@organisms/SectionInstagram";
 
 const Home = (props) => {
 	// set menu
@@ -26,6 +27,7 @@ const Home = (props) => {
 			<SectionCategories />
 			<SectionFeaturedRecipe />
 			<SectionLearn />
+			<SectionInstagram />
 		</>
 	);
 };

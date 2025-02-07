@@ -1,0 +1,83 @@
+@import "core/styles/_assets.scss";
+
+.section {
+	padding: 60px 0;
+	@include medium {
+		padding: 48px 0;
+	}
+	@include small {
+		padding: 32px 0;
+	}
+}
+
+.head {
+	text-align: center;
+	margin: 0 auto;
+	margin-bottom: 64px;
+	@include large {
+		margin-bottom: 56px;
+	}
+	@include medium {
+		margin-bottom: 32px;
+	}
+}
+
+.title {
+	@include font-size(48);
+	font-weight: fw(bold);
+	margin-bottom: 24px;
+	@include medium {
+		@include font-size(36);
+	}
+	@include small {
+		@include font-size(24);
+		margin-bottom: 16px;
+	}
+}
+
+.description {
+	@include font-size(16);
+	font-weight: fw(regular);
+	margin-bottom: 0;
+	color: color(grey, 1);
+	@include small {
+		@include font-size(14);
+	}
+}
+
+.body {
+	display: flex;
+	justify-content: center;
+	gap: 24px;
+	margin-bottom: 32px;
+	@include medium {
+		gap: 16px;
+	}
+	@include small {
+		gap: 12px;
+		margin-bottom: 24px;
+	}
+}
+
+.item {
+	width: 25%;
+	@include small {
+		width: 50%;
+	}
+}
+
+.image {
+	width: 100%;
+	height: 100%;
+	&El {
+		display: block;
+		width: 100%;
+	}
+}
+
+.button {
+	text-align: center;
+	span {
+		margin-right: 12px;
+	}
+}
