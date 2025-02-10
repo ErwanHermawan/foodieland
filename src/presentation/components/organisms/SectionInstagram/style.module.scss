@@ -2,6 +2,7 @@
 
 .section {
 	padding: 60px 0;
+	background: color(gradient, 1);
 	@include medium {
 		padding: 48px 0;
 	}
@@ -49,9 +50,10 @@
 	display: flex;
 	justify-content: center;
 	gap: 24px;
-	margin-bottom: 32px;
+	margin-bottom: 48px;
 	@include medium {
 		gap: 16px;
+		margin-bottom: 32px;
 	}
 	@include small {
 		margin-bottom: 24px;
