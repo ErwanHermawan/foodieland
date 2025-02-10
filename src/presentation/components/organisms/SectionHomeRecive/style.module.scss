@@ -1,0 +1,96 @@
+@import "core/styles/_assets.scss";
+
+.section {
+	padding: 60px 0;
+	@include medium {
+		padding: 48px 0;
+	}
+	@include small {
+		padding: 32px 0;
+	}
+}
+
+.head {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 148px;
+	margin-bottom: 64px;
+	@include medium {
+		gap: 64px;
+		margin-bottom: 48px;
+	}
+	@include small {
+		flex-direction: column-reverse;
+		gap: 24px;
+		margin-bottom: 32px;
+	}
+}
+
+.title {
+	@include font-size(48);
+	font-weight: fw(bold);
+	max-width: 600px;
+	margin-bottom: 0;
+	@include medium {
+		@include font-size(36);
+	}
+	@include small {
+		@include font-size(24);
+	}
+}
+
+.description {
+	@include font-size(16);
+	font-weight: fw(regular);
+	margin-bottom: 0;
+	color: color(grey, 1);
+	@include small {
+		@include font-size(14);
+	}
+}
+
+.body {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 32px;
+
+	@include medium {
+		gap: 16px;
+	}
+
+	@include small {
+		gap: 12px;
+	}
+}
+
+.wrapper {
+	box-sizing: border-box;
+	flex: 0 1 calc(25% - 24px);
+	max-width: calc(25% - 24px);
+	display: flex;
+	flex-direction: row;
+	gap: 16px;
+
+	@include medium {
+		flex: 0 1 calc(25% - 11px);
+		max-width: calc(25% - 11px);
+	}
+
+	@include small {
+		flex: 0 1 calc(50% - 8px);
+		max-width: calc(50% - 8px);
+	}
+
+	&WithAds {
+		flex: 0 1 calc(67.3% - 24px); // Adjusted width for 2 items per row, plus Ads
+		max-width: calc(67.3% - 24px);
+		gap: 32px;
+		@include small {
+			flex: 0 1 calc(100% - 8px);
+			max-width: calc(100% - 8px);
+			gap: 12px;
+		}
+	}
+}

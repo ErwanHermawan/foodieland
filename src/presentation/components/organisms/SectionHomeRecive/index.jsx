@@ -6,9 +6,8 @@ import style from "./style.module.scss";
 
 // -- molecules
 import RecipeItem from "@molecules/RecipeItem";
-import Ads from "@molecules/Ads";
 
-const SectionFeaturedRecipe = (props) => {
+const SectionHomeRecipe = (props) => {
 	return (
 		<div className={style.section}>
 			<div className="container">
@@ -18,18 +17,9 @@ const SectionFeaturedRecipe = (props) => {
 				</div>
 				<div className={style.body}>
 					{recipeData.item.map((val, idx) => {
-						// Check if the Ads component will be added
-						const isAdsAdded = (idx + 1) % 5 === 0;
-
 						return (
-							<div
-								key={`fr-${idx}`}
-								className={`${style.wrapper} ${
-									isAdsAdded ? style.wrapperWithAds : ""
-								}`}
-							>
-								<RecipeItem featured={true} {...val} />
-								{isAdsAdded && <Ads />}
+							<div key={`fr-${idx}`} className={style.wrapper}>
+								<RecipeItem {...val} />
 							</div>
 						);
 					})}
@@ -39,4 +29,4 @@ const SectionFeaturedRecipe = (props) => {
 	);
 };
 
-export default SectionFeaturedRecipe;
+export default SectionHomeRecipe;

@@ -7,7 +7,10 @@ import Link from "next/link";
 import style from "./style.module.scss";
 
 const RecipeItem = (props) => {
-	const { to, title, image, info, favorite, onFavoriteToggle } = props;
+	const { to, title, image, info, favorite, onFavoriteToggle, featured } =
+		props;
+
+	console.log("featured", featured);
 
 	const [isFavorite, setIsFavorite] = useState(favorite);
 
@@ -16,31 +19,35 @@ const RecipeItem = (props) => {
 		setIsFavorite(newFavoriteState);
 
 		if (onFavoriteToggle) {
-			onFavoriteToggle(newFavoriteState); // Call the parent function to update the favorite state
+			onFavoriteToggle(newFavoriteState);
 		}
 	};
 
 	return (
-		<div className={style.item}>
+		<div
+			className={`${style.item} ${
+				featured !== undefined && featured === true ? style.itemFeatured : ""
+			}`}
+		>
 			<Link className={style.link} href={to}>
 				{title}
 			</Link>
-			<div className={style.badge}>
-				<button
-					className={
-						isFavorite
-							? `${style.badgeBtn} ${style.badgeBtnFavorite}`
-							: style.badgeBtn
-					}
-					type="button"
-					onClick={handleFavoriteClick}
-				>
-					<i className="fi-heart"></i>
-				</button>
-			</div>
 			<div className={style.box}>
 				<div className={style.image}>
 					<Image src={image} alt={title} className={style.imageEl} />
+					<div className={style.badge}>
+						<button
+							className={
+								isFavorite
+									? `${style.badgeBtn} ${style.badgeBtnFavorite}`
+									: style.badgeBtn
+							}
+							type="button"
+							onClick={handleFavoriteClick}
+						>
+							<i className="fi-heart"></i>
+						</button>
+					</div>
 				</div>
 				<div className={style.text}>
 					<h3 className={style.title}>{title}</h3>
