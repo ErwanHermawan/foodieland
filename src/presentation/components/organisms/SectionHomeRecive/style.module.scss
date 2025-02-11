@@ -29,7 +29,7 @@
 
 .title {
 	@include font-size(48);
-	font-weight: fw(bold);
+	font-weight: fw(semi-bold);
 	max-width: 600px;
 	margin-bottom: 0;
 	@include medium {
