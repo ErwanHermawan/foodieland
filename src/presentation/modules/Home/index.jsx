@@ -13,6 +13,7 @@ import SectionFeaturedRecipe from "@organisms/SectionFeaturedRecipe";
 import SectionLearn from "@organisms/SectionLearn";
 import SectionInstagram from "@organisms/SectionInstagram";
 import SectionHomeRecipe from "@organisms/SectionHomeRecive";
+import SectionSubscribe from "@organisms/SectionSubscribe";
 
 const Home = (props) => {
 	// set menu
@@ -30,6 +31,7 @@ const Home = (props) => {
 			<SectionLearn />
 			<SectionInstagram />
 			<SectionHomeRecipe />
+			<SectionSubscribe />
 		</>
 	);
 };

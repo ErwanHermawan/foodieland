@@ -1,0 +1,157 @@
+@import "core/styles/_assets.scss";
+
+.subscribe {
+	padding: 80px;
+	background: color(primary);
+	border-radius: 48px;
+	overflow: hidden;
+	text-align: center;
+	position: relative;
+	@include medium {
+		padding: 64px;
+	}
+	@include small {
+		padding: 96px 24px;
+		border-radius: 32px;
+	}
+	&::before,
+	&::after {
+		content: "";
+		display: block;
+		position: absolute;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+		z-index: 1;
+	}
+	&:before {
+		content: "";
+		height: 400px;
+		width: 400px;
+		display: block;
+		left: -96px;
+		bottom: -96px;
+		transform: rotate(30deg);
+		@include bg-img("dummy/element-1.png");
+		@include medium {
+			height: 300px;
+			width: 300px;
+			transform: rotate(45deg);
+		}
+		@include small {
+			height: 250px;
+			width: 250px;
+			left: -80px;
+			top: -80px;
+			transform: rotate(-180deg);
+		}
+	}
+	&:after {
+		content: "";
+		width: 470px;
+		height: 355px;
+		display: block;
+		right: -120px;
+		bottom: -140px;
+		@include bg-img("dummy/element-2.png");
+		@include medium {
+			width: 350px;
+			height: 265px;
+		}
+		@include small {
+			width: 300px;
+			height: 225px;
+		}
+	}
+}
+
+.wrapper {
+	max-width: 680px;
+	margin: 0 auto;
+}
+
+.title {
+	@include font-size(48);
+	font-weight: fw(semi-bold);
+	margin-bottom: 24px;
+	@include medium {
+		@include font-size(36);
+	}
+	@include small {
+		@include font-size(24);
+		margin-bottom: 16px;
+	}
+}
+
+.description {
+	@include font-size(16);
+	font-weight: fw(regular);
+	margin-bottom: 64px;
+	color: color(grey, 1);
+	@include medium {
+		margin-bottom: 48px;
+	}
+	@include small {
+		margin-bottom: 32px;
+		@include font-size(14);
+	}
+}
+
+.form {
+	position: relative;
+	width: 480px;
+	margin: 0 auto;
+	@include small {
+		width: 100%;
+	}
+}
+
+.input {
+	width: 100%;
+	border: 0;
+	padding: 24px 32px;
+	border-radius: 32px;
+	background: color(white);
+	color: color(black);
+	font-size: 16px;
+	font-weight: fw(regular);
+	&::placeholder {
+		color: color(grey, 1);
+	}
+	@include medium {
+		padding: 16px 24px;
+	}
+	@include small {
+		padding: 12px 16px;
+		font-size: 14px;
+	}
+}
+
+.button {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	right: 8px;
+	padding: 16px 24px;
+	border: solid 1px color(black);
+	border-radius: 24px;
+	background: color(black);
+	color: color(white);
+	font-size: 16px;
+	font-weight: fw(bold);
+	cursor: pointer;
+	transition: 0.3s;
+	&:hover {
+		background: color(white);
+		color: color(black);
+	}
+	@include medium {
+		padding: 12px 16px;
+		font-size: 14px;
+	}
+	@include small {
+		padding: 8px 12px;
+		font-size: 12px;
+		right: 4px;
+	}
+}
